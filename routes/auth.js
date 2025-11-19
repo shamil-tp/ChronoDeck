@@ -11,7 +11,7 @@ router
 router
     .route('/register')
     .get(GetRegisterPage)
-    .post()
+    // .post()
 
 router
     .route('/logout')

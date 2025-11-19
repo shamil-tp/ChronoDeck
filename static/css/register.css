@@ -1,0 +1,71 @@
+.body{
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: 100%;
+}
+.register__form{
+    width: 100%;
+    height: 100vh;
+    color: red;
+    background-color: rgba(0, 0, 255, 0);
+    /* border: 2px solid red; */
+}
+
+.background__image{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%,-50%);
+    z-index: -2;
+}
+.register__form--container{
+    width: 600px;
+    /* height: 50vh; */
+    
+}
+.glass-card {
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.164);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2px);
+-webkit-backdrop-filter: blur(0.9px);
+border: 1px solid rgba(255, 255, 255, 0.47);
+}
+
+
+.flex__center--center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.input{
+    background-color: transparent;
+    color: white;
+}
+.input:focus{
+    background-color: transparent;
+    caret-color: white;
+}
+.btn__outline--container{
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.095);
+}
+.btn-outline{
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    transition: 0.5,ease-in;
+}
+.btn-outline:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: bold;
+}
