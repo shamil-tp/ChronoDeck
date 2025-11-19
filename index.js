@@ -17,13 +17,13 @@ app.use(express.static('static'))
 
 const auth = require('./routes/auth')
 // const admin = require('./routes/admin')
-const { isLoggedin, isDoctor, isDesk, isPharm } = require('./middlewares/auth')
+const { isLoggedin, isAdmin,} = require('./middlewares/auth')
 
 
 // app.use('/admin', admin)
 app.use('/', auth)
 
-app.get('/',isLoggedin ,(req, res) => {
+app.get('/',isLoggedin,isAdmin,(req, res) => {
     console.log(req.user)
     let username = req.user.name
     return res.render('home', { username })

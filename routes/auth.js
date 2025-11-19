@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { loginPage, login, logout, GetRegisterPage } = require('../controllers/auth')
+const { loginPage, login, logout, GetRegisterPage, Register } = require('../controllers/auth')
 
 
 router
@@ -11,7 +11,7 @@ router
 router
     .route('/register')
     .get(GetRegisterPage)
-    // .post()
+    .post(Register)
 
 router
     .route('/logout')

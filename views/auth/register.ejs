@@ -7,60 +7,63 @@
     <title>ChronoDeck Register</title>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/font.css">
     <!-- <link rel="stylesheet" href="../../static/css/register.css"> -->
 </head>
 
 <body class="body">
-    <div class="container flex__center--center">
+    <div class="container flex__center--center intel-one-mono">
+        <h1 class="bungee-shade form__heading">Register</h1>
         <div class="register__form--container glass-card justify-content-center align-items-center">
-            <form action="">
+            <form action="/register" method="post">
                 <div class="row p-3 text-white">
                     <div class="col-6">
                         <div class="mb-3">
-                            <label class="form-label">Name :</label>
-                            <input type="text" class="form-control input">
+                            <label class="form-label">Name:</label>
+                            <input type="text" class="form-control input roboto-condensed" name="name">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
-                            <label class="form-label">User Name :</label>
-                            <input type="text" class="form-control input">
+                            <label class="form-label">User Name:</label>
+                            <input type="text" class="form-control input roboto-condensed" name="username">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
                             <label class="form-label">Email address: </label>
-                            <input type="email" class="form-control input">
+                            <input type="email" class="form-control input roboto-condensed" name="email">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
-                            <label class="form-label">Phone :</label>
-                            <input type="tel" class="form-control input">
+                            <label class="form-label">Phone:</label>
+                            <input type="tel" class="form-control input roboto-condensed" name="phone">
                         </div>
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <div class="mb-3">
-                            <label class="form-label">Date of Birth :</label>
-                            <input type="date" class="form-control input">
+                            <label class="form-label">Date of Birth:</label>
+                            <input type="date" class="form-control input roboto-condensed" name="dob">
                         </div>
                     </div>
-                    <div class="col-7">
+                    <div class="col-8">
                         <div class="mb-3">
-                            <label class="form-label">Role :</label>
-                            <div class="form-check">
+                            <label class="form-label">Role:</label>
+                            <div class="form-check btn__outline--container p-1">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                        value="option1">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="admin"
+                                        name="role">
                                     <label class="form-check-label" for="inlineCheckbox1">Admin</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                        value="option2">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="gamer"
+                                        name="role">
                                     <label class="form-check-label" for="inlineCheckbox2">Gamer</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                        value="collector" name="role">
                                     <label class="form-check-label" for="inlineCheckbox3">Collector</label>
                                 </div>
                             </div>
@@ -68,32 +71,47 @@
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
-                            <label class="form-label">Password :</label>
-                            <input type="password" class="form-control input">
+                            <label class="form-label">Password:</label>
+                            <input type="password" class="form-control input roboto-condensed" name="password">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="mb-3">
-                            <label class="form-label">Confirm Password :</label>
-                            <input type="password" class="form-control input">
+                            <label class="form-label">Confirm Password:</label>
+                            <input type="password" class="form-control input roboto-condensed" name="confirmPassword">
                         </div>
                     </div>
                     <div class="col-12">
+                        <div class="row">
+                            <div class="col-6">
                         <label class="form-label">Submit Registration:</label>
+
+                            </div>
+                            <div class="col-6">
+                        <label class="form-label text-danger"><%=msg%></label>
+
+                            </div>
+                        </div>
                         <div class="row btn__outline--container">
                             <div class="my-2 col-6">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-outline-dark btn-outline" style="color: rgb(255, 83, 83);">Reset</button>
-                            </div>
-                        </div>
-                        <div class="my-2 col-6">
                                 <div class="d-grid gap-2">
-                                <button class="btn btn-outline-dark btn-outline" style="color: rgb(65, 169, 75);">Submit</button>
+                                    <button class="btn btn-outline-dark btn-outline"
+                                        style="color: rgb(255, 83, 83);" type="reset">Reset</button>
+                                </div>
                             </div>
-                        </div>
+                            <div class="my-2 col-6">
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-dark btn-outline"
+                                        style="color: rgb(65, 169, 75);">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <label class="form-label"><a href="/login" class="text-white">Already have an account
+                                        login</a></label>
+
+                            </div>
                         </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>
