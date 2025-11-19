@@ -1,0 +1,22 @@
+{
+  "name": "chronodeck",
+  "version": "1.0.0",
+  "description": "ChronoDeck is the next generation of digital gaming. uses ejs express cookieparser mongoose nodemon jwt bcrypt ",
+  "license": "ISC",
+  "author": "shamil-tp",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "node index"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.20.0"
+  }
+}
