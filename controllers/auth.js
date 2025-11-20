@@ -1,4 +1,4 @@
-const e = require('express')
+// const e = require('express')
 const User = require('../models/User')
 const sendCookie = require('../utils/sendCookie')
 

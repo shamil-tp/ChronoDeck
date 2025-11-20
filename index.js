@@ -3,12 +3,18 @@ require('dotenv').config()
 const express = require('express')
 const connectDB = require('./config/db')
 const cookieParser = require('cookie-parser')
+const path = require('path');
+
 
 const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 
+
+
+
+app.use('/bootstrap-icons', express.static(path.join(__dirname, 'node_modules', 'bootstrap-icons', 'font')));
 app.use(cookieParser())
 app.use(express.urlencoded())
 app.use(express.json())
@@ -16,18 +22,14 @@ app.use(express.static('static'))
 
 
 const auth = require('./routes/auth')
+const home = require('./routes/home')
 // const admin = require('./routes/admin')
 const { isLoggedin, isAdmin,} = require('./middlewares/auth')
 
 
 // app.use('/admin', admin)
 app.use('/', auth)
-
-app.get('/',isLoggedin,isAdmin,(req, res) => {
-    console.log(req.user)
-    let username = req.user.name
-    return res.render('home', { username })
-})
+app.use('/',isLoggedin,isAdmin,home)
 
 app.use((req, res) => {
     return res.send('404')

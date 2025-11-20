@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
+
+    <style>
+        .navbar__brand--image {
+            width: 50px;
+        }
+
+        .nav__background {
+            background-color: black !important;
+        }
+
+        .nav__home--link {
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+            text-shadow:
+                /* Outline for 1px: four shadows offset by 1px */
+                -1px -1px 0 #ff0000,
+                /* Top-Left */
+                1px -1px 0 #ff0000,
+                /* Top-Right */
+                -1px 1px 0 #ff0000,
+                /* Bottom-Left */
+                1px 1px 0 #ff0000;
+            /* Bottom-Right */
+            
+
+        }
+        .nav__link{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .profile__pic{
+            width: 20px;
+        }
+        .profile__text{
+            font-size: 14px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="navbar bg-dark text-white navbar-expand-lg nav__background px-md-5">
+        <div class="container-fluid px-md-5">
+            <a class="navbar-brand staatliches nav__home--link" href="/"><img src="/images/logos/logo.svg"
+                    alt="" class="navbar__brand--image">ChronoDeck</a>
+            <div class="d-md-flex d-none gap-3 g-1 align-items end">
+                <a href="/games" class="nav__link">
+                    <div class="d-flex align-items-center justify-content-center profile__text gap-2">
+                        <img src="" alt=""><img src="/images/logos/profile.png" alt="" class="profile__pic"><%=username%>
+                    </div>
+                </a>
+                <a href="/games" class="nav__link">Games</a>
+                <a href="/support" class="nav__link">Support</a>
+                <a href="/about" class="nav__link">About</a>
+                <a href="/logout" class="nav__link text-danger"><i class="bi bi-power"></i>Logout</a>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

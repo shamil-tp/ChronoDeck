@@ -10,6 +10,10 @@
     font-family: 'Roboto Condensed';
     src: url('/fonts/Roboto_Condensed/static/RobotoCondensed-Regular.ttf');
 }
+@font-face {
+  font-family: 'Staatliches';
+  src: url('/fonts/Staatliches/Staatliches-Regular.ttf');
+}
 
 .bungee-shade{
   font-family: "Bungee Shade", sans-serif;
@@ -25,6 +29,11 @@
 .intel-one-mono{
   font-family: "Intel One Mono", monospace;
   font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.staatliches{
+  font-family: "Staatliches", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
