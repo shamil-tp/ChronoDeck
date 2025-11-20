@@ -1,0 +1,66 @@
+.body{
+    margin: 0 ;
+    padding: 0;
+    overflow-x: hidden;
+}
+.hero__section{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(43, 43, 78);
+}
+.hero__slide{
+    width: 100%;
+    height: 65vh;
+    /* border: 2px solid salmon; */
+}
+.hero__slide .row {
+    display: flex !important; /* Forces Flexbox layout */
+    height: 100%; /* Ensures the row takes up the full slide height */
+    align-items: stretch; /* Ensures columns stretch to max height */
+}
+.slide__image--container{
+    width: 100%;
+    height: 65vh;
+
+}
+.slide__image--container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    
+}
+.brand__name{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    text-shadow:
+        /* Outline for 1px: four shadows offset by 1px */
+        -1px -1px 0 #ff0000,
+        /* Top-Left */
+        1px -1px 0 #ff0000,
+        /* Top-Right */
+        -1px 1px 0 #ff0000,
+        /* Bottom-Left */
+        1px 1px 0 #ff0000;
+    /* Bottom-Right */
+
+        
+}
+
+.brand__name:hover {
+    color: black;
+}
+.align__sale--items{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.explore__more{
+    text-decoration: none;
+}
+.explore__more:hover h1{
+    color: #ffc107 !important;
+}
