@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/font.css">
     <style>
         body {
-            background-color: #0b1a33; /* Dark Blue */
+            background-color: #0b1a33 !important; /* Dark Blue */
             color: #fff;
             font-family: Arial, sans-serif;
         }
@@ -73,8 +73,8 @@
             font-weight: bold;
         }
         a{
-            text-decoration: none;
-            color: white;
+            text-decoration: none !important;
+            color: white !important;
         }
     </style>
 </head>
@@ -82,7 +82,7 @@
 <body>
 <%-include('../navbar')%>
     <%-include('../audio')%>
-    <h1 class="page-title bungee-shade">Our Games</h1>
+    <h1 class="page-title bungee-shade text-white" style="z-index: 3;">Our Games</h1>
 
     <div class="container mb-5">
         <div class="games-grid">
@@ -124,6 +124,12 @@
                 <div class="game-card">
                 <img src="/images/games/dino.webp" class="game-img">
                 <p class="game-title">Dino Game</p>
+            </div>
+            </a>
+            <a href="/game/touch">
+                <div class="game-card">
+                <img src="/images/games/touch.jpg" class="game-img">
+                <p class="game-title">Touch The Color</p>
             </div>
             </a>
 

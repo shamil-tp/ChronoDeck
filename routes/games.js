@@ -1,5 +1,5 @@
 const express = require('express')
-const { GetAirPage, GetTicPage, GetTrafficPage, GetStonePage, GetDinoPage } = require('../controllers/games')
+const { GetAirPage, GetTicPage, GetTrafficPage, GetStonePage, GetDinoPage, GetTouchPage } = require('../controllers/games')
 const router = express.Router()
 
 router
@@ -17,5 +17,8 @@ router
 router
     .route('/dino')
     .get(GetDinoPage)
+router
+    .route('/touch')
+    .get(GetTouchPage)
 
 module.exports = router

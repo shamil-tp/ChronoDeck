@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack A Mole</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        /* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+.game-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+#base-area{
+    width: 80%;
+    height: 80vh;
+ }
+.mole__base{
+    width: 100%;
+    height: calc(80vh / 4);
+    border: 2px solid rgb(101, 255, 186);
+    /* background-color: brown; */
+}
+.mole{
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+#score-card{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+}
+
+    </style>
+</head>
+<body>
+    <div class="game-page">
+        <h1>touch the color</h1>
+        <p id="score-card h2">score: <span id="score">0</span></p>
+        <p id="score-card h2" style="text-align: right;">timer: <span id="timer">0</span></p>
+        <div class="bg-info" id="base-area">
+            <div class="row">
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole1">
+
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole2">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole3">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole4">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole5">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole6">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole7">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole8">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole9">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole10">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole11">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole12">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole13">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole14">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole15">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="mole__base">
+                        <div class="mole" id="mole16">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var moles = ["mole1","mole2","mole3","mole4","mole5","mole6","mole7","mole8","mole9","mole10","mole11","mole12","mole13","mole14","mole15","mole16"]
+function randomMole(limit){
+    return Math.floor(Math.random() * limit)
+}
+var count = 0
+var timer = 60
+function score(){
+    count++;
+    document.getElementById("score").innerText = count
+}
+
+function moleWakeUp(num){
+    var mole = document.getElementById(moles[num])
+    mole.style.display = "block"
+    mole.addEventListener("click",score)
+    console.log(num)
+    var dNone = setTimeout(function(){
+      mole.style.display = "none" 
+
+    },1500)
+}
+
+
+
+let gameInterval = setInterval(function(){
+    moleWakeUp(randomMole(moles.length))
+    timer--
+    document.getElementById("timer").innerText =timer
+},1000) 
+
+setTimeout(()=>{
+    clearInterval(gameInterval)
+    alert('game over score ='+ count)
+},1000*60)
+
+
+    </script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+</html>

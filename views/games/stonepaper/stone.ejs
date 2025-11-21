@@ -195,6 +195,13 @@
             font-family: monospace;
             font-size: 30px;
         }
+        .nav__background {
+            /* background-color: rgb(0, 0, 0) !important; */
+            z-index: 20;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+        }
     </style>
 </head>
 
@@ -208,13 +215,13 @@
         </div>
         <div class="side" id="side-A">
             <!-- <img src="https://images.pexels.com/photos/415980/pexels-photo-415980.jpeg" alt="sign"> -->
-            <img src="./images/rock.png" alt="sign" id="player1__attack--image">
+            <img src="/images/stone/rock.png" alt="sign" id="player1__attack--image">
             <h3 id="player1-name" class="player-name">Player 1</h3>
             <p id="score-player1" class="scores">00</p>
         </div>
         <div class="side" id="side-B">
             <!-- <img src="https://images.pexels.com/photos/415980/pexels-photo-415980.jpeg" alt="sign"> -->
-            <img src="./images/scissors.png" alt="sign" id="player2__attack--image">
+            <img src="/images/stone/scissors.png" alt="sign" id="player2__attack--image">
             <h3 id="player2-name" class="player-name">Player 2</h3>
             <p id="score-player2" class="scores">00</p>
         </div>
@@ -246,15 +253,15 @@
         var attackImages = [
             {
                 name: "rock",
-                image: "./images/rock.png"
+                image: "/images/stone/rock.png"
             },
             {
                 name: "paper",
-                image: "./images/paper.png"
+                image: "/images/stone/paper.png"
             },
             {
                 name: "scissors",
-                image: "./images/scissors.png"
+                image: "/images/stone/scissors.png"
             }
         ];
 

@@ -58,3 +58,15 @@ exports.GetTicPage = (req, res) => {
         return res.send('something is wrong')
     }
 }
+exports.GetTouchPage = (req, res) => {
+    try {
+        let username = req.user && req.user.name ? req.user.name : 'Guest'
+        if(!(username)){
+            return res.render('home/home',{username:'Guest'})
+        }
+        return res.render('games/touchthecolor/touch',{username:username})
+    } catch (e) {
+        console.log(e)
+        return res.send('something is wrong')
+    }
+}

@@ -16,13 +16,13 @@
         }
         @font-face {
             font-family: 'ArchivoBlack';
-            src: url('./fonts/ArchivoBlack-Regular.ttf');
+            src: url('/fonts/Archivo_Black/ArchivoBlack-Regular.ttf');
             font-size: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: 'IntelOneMono';
-            src: url('./fonts/IntelOneMono-VariableFont_wght.ttf');
+            src: url('/fonts/Intel_One_Mono/IntelOneMono-VariableFont_wght.ttf');
             font-size: normal;
             font-weight: normal;
         }
@@ -251,6 +251,7 @@
 </head>
 
 <body>
+
     <div class="game__base" id="gameBase">
         <div class="main__road">
             <div class="row">
@@ -303,7 +304,7 @@
                 </div>
             </div>
         </div>
-        <img src="./images/Daco_4366374.png" alt="" id="ford__mustang">
+        <img src="/images/traffic/Daco_4366374.png" alt="" id="ford__mustang">
         <div id="score__board">
             <p id="score__title">SCORE</p>
             <p id="score">0</p>
@@ -348,7 +349,7 @@
         let policeRoadNumber
 
         // var policeCar = document.getElementById('police')
-        const policeCarImageLocation = "./images/pngfind.com-police-car-png-16821.png"
+        const policeCarImageLocation = "/images/traffic/pngfind.com-police-car-png-16821.png"
         const gameBase = document.getElementById('gameBase')
         let police
         // $(".game__base").css("background-color","red")
