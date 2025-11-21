@@ -1,0 +1,60 @@
+
+    :root {
+      --cell-size-3: 108px;   /* 3×3 big cells */
+      --cell-size-5: 72px;    /* 5×5 slightly smaller cells */
+      --cell-gap: 10px;
+    }
+
+    body { background: #0f172a; } /* slate-900 */
+    .game-card {
+      border: 0;
+      border-radius: 1.25rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    }
+
+    /* Board uses CSS Grid; size switches based on selection */
+    #board {
+      display: grid;
+      gap: var(--cell-gap);
+      justify-content: center;
+      align-content: center;
+      user-select: none;
+      transition: transform .2s ease;
+    }
+    #board.size-3 {
+      grid-template-columns: repeat(3, var(--cell-size-3));
+      grid-template-rows: repeat(3, var(--cell-size-3));
+    }
+    #board.size-5 {
+      grid-template-columns: repeat(5, var(--cell-size-5));
+      grid-template-rows: repeat(5, var(--cell-size-5));
+    }
+    .cell {
+      background: #111827;            /* gray-900 */
+      border-radius: 1rem;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: transform .08s ease, background .15s ease, box-shadow .15s ease;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.04);
+    }
+    .cell:hover { transform: translateY(-2px); background: #0b1220; }
+    .cell:active { transform: translateY(0); }
+
+    .cell.x { color: #60a5fa; text-shadow: 0 4px 14px rgba(96,165,250,.4); } /* blue-400 */
+    .cell.o { color: #f472b6; text-shadow: 0 4px 14px rgba(244,114,182,.4); } /* pink-400 */
+
+    .cell.winning {
+      outline: 3px solid #22c55e;     /* green-500 */
+      box-shadow: 0 0 0 3px rgba(34,197,94,.25);
+      background: #052e1b;
+    }
+
+    .badge-mode { font-size: .8rem; }
+
+    /* Responsive tweak: scale board on small screens */
+    @media (max-width: 420px) {
+      #board { transform: scale(.9); }
+    }

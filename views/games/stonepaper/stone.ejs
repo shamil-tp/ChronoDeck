@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stone paper scissors</title>
+    <style>
+        @font-face {
+            font-family: 'FunnelSans';
+            src: url('fonts/FunnelSans-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            /* Variable weight axis range */
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #base {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(78, 255, 196);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .title-section {
+            width: 100%;
+            background-color: white;
+            height: 10vh;
+        }
+
+        #current-round {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            translate: -50% 0;
+            background-color: white;
+            color: rgb(255, 127, 127);
+            padding: 20px;
+            border: 2px solid black;
+            font-size: 32px;
+        }
+
+        .side {
+            width: calc(100% / 2);
+            height: 70vh;
+            display: flex;
+            padding: 5%;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #side-A {
+            background-color: cornflowerblue;
+        }
+
+        #side-B {
+            background-color: rgb(255, 94, 156);
+        }
+
+        .button-container {
+            width: 100%;
+            height: 20vh;
+            background-color: rgb(255, 178, 148);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 50%;
+            border-radius: 15px;
+        }
+        .player-name{
+            font-family: "FunnelSans";
+            font-size: 26px;
+            font-weight: 300;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .scores{
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+        }
+        #play-button {
+            color: rgb(100, 224, 28);
+            background-color: white;
+            /* width: 60%; */
+            font-size: 30px;
+            font-weight: 700;
+            padding: 20px 10px;
+            border-radius: 15px;
+            border: none;
+            border-bottom:8px solid rgb(211, 211, 211);
+        }
+
+        #overlay1 {
+            color: white;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.767);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            position: absolute;
+            top: 0;
+        }
+
+        .setup-container {
+            width: 100%;
+            padding: 10%;
+            background-color: chartreuse;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .overlay-heading {
+            text-align: center;
+            background-color: black;
+            width: 100%;
+            padding: 5% 0;
+        }
+
+        .number-of-round {
+            width: 50%;
+        }
+
+        .setup-container input:not(.number-of-round):nth-child(1) {
+            width: calc(50% / 2 - 10px);
+            border: 2px solid red;
+        }
+
+        .setup-container input:not(.number-of-round):nth-child(2) {
+            width: calc(50% / 2);
+        }
+
+        .start-buttton {
+            width: 50%;
+            height: 50px;
+            background-color: aqua;
+        }
+
+        #overlay2 {
+            /* font-family: "FunnelSans"; */
+            width: 100%;
+            height: 100vh;
+            background-color: bisque;
+            color: white;
+            /* display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: nowrap; */
+            position: absolute;
+            top: 0;
+            display: none;
+
+        }
+
+        .setup-container2 {
+            width: 100%;
+            height: 30%;
+            padding: 0 10%;
+            background-color: bisque;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            gap: 10px;
+        }
+
+        #winner-is {
+            color: black;
+            font-family: monospace;
+            font-size: 36px;
+        }
+
+        #winner__name {
+            color: black;
+            font-family: monospace;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="base" class="container">
+        <div class="title-section">
+
+        </div>
+        <div class="current-round--section" id="current-round__container">
+            <h3 id="current-round">00</h3>
+        </div>
+        <div class="side" id="side-A">
+            <!-- <img src="https://images.pexels.com/photos/415980/pexels-photo-415980.jpeg" alt="sign"> -->
+            <img src="./images/rock.png" alt="sign" id="player1__attack--image">
+            <h3 id="player1-name" class="player-name">Player 1</h3>
+            <p id="score-player1" class="scores">00</p>
+        </div>
+        <div class="side" id="side-B">
+            <!-- <img src="https://images.pexels.com/photos/415980/pexels-photo-415980.jpeg" alt="sign"> -->
+            <img src="./images/scissors.png" alt="sign" id="player2__attack--image">
+            <h3 id="player2-name" class="player-name">Player 2</h3>
+            <p id="score-player2" class="scores">00</p>
+        </div>
+        <div class="button-container">
+            <button id="play-button" onclick="playRound()">
+                PLAY ROUND
+            </button>
+        </div>
+    </div>
+    <div id="overlay1">
+        <h2 class="overlay-heading">ROCK PAPER SCISSORS</h2>
+        <div class="setup-container">
+            <input type="text" placeholder="enter name of player1" id="player1">
+            <input type="text" placeholder="enter name of player2" id="player2">
+            <input type="text" placeholder="enter the total number of rounds" class="number-of-round" id="max-rounds">
+            <button type="button" class="start-buttton" id="start" onclick="startGame()">START GAME</button>
+        </div>
+    </div>
+    <div id="overlay2">
+        <h2 class="overlay-heading">ROCK PAPER SCISSORS WINNER</h2>
+        <div class="setup-container2">
+            <p id="winner-is">The Winner is </p>
+            <h3 id="winner__name">Gomez GR</h3>
+            <button type="button" class="start-buttton" id="restart" onclick="resetGame()">RESTART GAME</button>
+        </div>
+    </div>
+
+    <script>
+        var attackImages = [
+            {
+                name: "rock",
+                image: "./images/rock.png"
+            },
+            {
+                name: "paper",
+                image: "./images/paper.png"
+            },
+            {
+                name: "scissors",
+                image: "./images/scissors.png"
+            }
+        ];
+
+        var maxRounds = 0;
+         var rounds = 0;
+         var scorePlayer1 = 0 
+         var scorePlayer2 = 0
+         document.getElementById('score-player2')
+
+        function startGame() {
+            var maxRounds = document.getElementById("max-rounds").value;
+            rounds = 0;
+            document.getElementById('current-round').innerText= rounds;
+            document.getElementById("overlay1").style.display = "none"
+
+            var player1 = document.getElementById("player1").value;
+            var player2 = document.getElementById("player2").value;
+
+            document.getElementById("player1-name").innerText = player1
+            document.getElementById("player2-name").innerText = player2
+
+            var score1 = document.getElementById("score-player1")
+            var score2 = document.getElementById("score-player2")
+            
+            scorePlayer1 = 0
+            scorePlayer2 = 0
+
+            score1.innerText = "00"
+            score2.innerText = "00"
+
+
+        }
+        function rand(){
+            return Math.floor(Math.random() * 3)
+        }
+
+        function setImage(player1_Attack,player2_Attack){
+            document.getElementById('player1__attack--image').src = attackImages[player1_Attack].image
+            document.getElementById('player2__attack--image').src = attackImages[player2_Attack].image
+        }
+        function playRound(){
+            var maxRounds = document.getElementById("max-rounds").value;
+            var player1_Attack = rand()
+            var player2_Attack = rand()
+            if(rounds < maxRounds){
+                rounds++;
+
+                document.getElementById('current-round').innerText= rounds;
+                document.getElementById('play-button').style.borderBottom= "2px solid rgb(211, 211, 211)";
+
+                setImage(player1_Attack,player2_Attack);
+                scoreGenerator(player1_Attack,player2_Attack)
+                console.log(player1_Attack + " : " +scorePlayer1 +" :: "+player2_Attack + " : " +scorePlayer2)
+                document.getElementById('score-player1').innerText = scorePlayer1;
+                document.getElementById('score-player2').innerText = scorePlayer2;
+                
+                var player1 = document.getElementById("player1-name")
+                var player2 = document.getElementById("player2-name")
+                var score1 = document.getElementById("score-player1")
+                var score2 = document.getElementById("score-player2")
+                var winner = document.getElementById("winner__name")
+
+                scorePlayer1>scorePlayer2?winner.innerText = player1.innerText:winner.innerText = player2.innerText;
+                
+            }
+            else{
+                document.getElementById('overlay2').style.display = 'block'
+            }
+        }
+        function scoreGenerator(player1_Attack,player2_Attack){
+            if(!(attackImages[player1_Attack].name == attackImages[player2_Attack].name)){
+                if(attackImages[player1_Attack].name == 'rock'){
+                    return attackImages[player2_Attack].name == 'paper'?scorePlayer2++:scorePlayer1++;
+                }
+                else if(attackImages[player1_Attack].name == 'paper'){
+                    return attackImages[player2_Attack].name == 'scissors'?scorePlayer2++:scorePlayer1++;
+                }
+                else{
+                    return attackImages[player2_Attack].name == 'rock'?scorePlayer2++:scorePlayer1++;
+                }
+            }
+        }
+        function resetGame(){
+            rounds = 0;
+            document.getElementById("overlay1").style.display = "block"
+            document.getElementById("overlay2").style.display = "none"
+        }
+
+
+
+    </script>
+</body>
+
+</html>

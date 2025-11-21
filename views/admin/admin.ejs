@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/font.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+
+        <a href="#">Dashboard</a>
+        <a href="#">Users</a>
+        <a href="#">Games</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="top-bar">
+            <h1>Welcome Back, Admin</h1>
+        </div>
+
+        <!-- Dashboard custom__Cards -->
+        <div class="custom__cards" id="all__cards">
+
+            <div class="custom__card">
+                <h3>Total Users</h3>
+                <p>
+                    <%=user.length%>
+                </p>
+            </div>
+
+            <div class="custom__card">
+                <h3>Total Games</h3>
+                <p>6</p>
+            </div>
+
+            <div class="custom__card">
+                <h3>Reports</h3>
+                <p>
+                    <%=issue.length%>
+                </p>
+            </div>
+
+        </div>
+        <h2 class="mt-5">Users:</h2>
+        <table class="table table-bordered table-striped-column table-dark mt-3" id="custom__table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">email</th>
+                    <th scope="col">phone</th>
+                    <th scope="col">role</th>
+                    <th scope="col">dob</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%user.forEach((e)=>{%>
+                    <tr>
+                    <th scope="row"><%=e.id%></th>
+                    <td><%=e.username%></td>
+                    <td><%=e.email%></td>
+                    <td><%=e.phone%></td>
+                    <td><%=e.role%></td>
+                    <td><%=e.dob%></td>
+                </tr>
+               <% })%>
+            </tbody>
+        </table>
+        <h2 class="mt-5">Reports:</h2>
+        <table class="table table-bordered table-striped-column table-dark mt-3" id="custom__table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Issue Category</th>
+                    <th scope="col">Issue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%issue.forEach((e)=>{%>
+                    <tr>
+                    <th scope="row"><%=e.id%></th>
+                    <td><%=e.email%></td>
+                    <td><%=e.issueCategory%></td>
+                    <td><%=e.issue%></td>
+                </tr>
+               <% })%>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<script>
+
+</script>
+</html>

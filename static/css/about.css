@@ -145,10 +145,12 @@
 @media(max-width:600px) {
     .about__section {
         height: 100vh;
+        flex-direction: column;
     }
 
     .about__section h1 {
         font-size: 20px;
+        padding: 4%;
     }
     .hero__brand-name{
         font-size: 60px;

@@ -23,14 +23,17 @@ app.use(express.static('static'))
 
 const auth = require('./routes/auth')
 const home = require('./routes/home')
+const game = require('./routes/games')
+const admin = require('./routes/admin')
 // const admin = require('./routes/admin')
 const { isLoggedin, isAdmin,} = require('./middlewares/auth')
 
 
 // app.use('/admin', admin)
 app.use('/', auth)
-app.use('/',isLoggedin,isAdmin,home)
-
+app.use('/',isLoggedin,home)
+app.use('/game',isLoggedin,game)
+app.use('/admin',isLoggedin,isAdmin,admin)
 app.use((req, res) => {
     return res.send('404')
 })

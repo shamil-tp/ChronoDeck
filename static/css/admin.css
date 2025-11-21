@@ -1,0 +1,101 @@
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e1a2b;
+            /* Dark Blue-ish */
+            color: #ffffff;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #111d33;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 20px 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: #bfc7d5;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #162544;
+            color: #fff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 25px;
+        }
+
+        .top-bar {
+            background: #11213a;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .top-bar h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        /* Cards */
+        .custom__cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .custom__card {
+            background: #142645;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .custom__card:hover {
+            background: #1d345c;
+            transform: translateY(-5px);
+        }
+
+        .custom__card h3 {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 900px) {
+            .custom__cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 200px;
+            }
+
+            .custom__cards {
+                grid-template-columns: 1fr;
+            }
+        }

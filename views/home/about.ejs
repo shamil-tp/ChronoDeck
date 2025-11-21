@@ -13,6 +13,8 @@
 
 <body class="body">
     <%-include('../navbar')%>
+    <%-include('../audio')%>
+
         <section class="hero__section">
             <video loop autoplay muted>
                 <source src="/video/about/background.mp4" type="video/mp4">
@@ -22,18 +24,13 @@
                 <h1 class="hero__brand-name">ChronoDeck</h1>
             </div>
         </section>
-        <section class="about__section">
-            <h1 class="roboto-condensed text-white text-center">
-                <span class="brand__name" style="font-size: 50px;">ChronoDeck</span> is a cutting-edge digital platform specifically designed for PC gaming. Its name,
-                "<span class="brand__name" style="font-size: 50px;">ChronoDeck</span>," implies a mastery or unique approach to time within the gaming experience, or perhaps a
-                vast, curated "deck" of games spanning different eras and genres, presented in a structured or thematic
-                way.
-            </h1>
-            <div class="about__background-image--container">
-                <img src="/images/about/background.jpg" alt="" class="about__background-image">
-            </div>
-        </section>
+        
         <section class="features__section row p-5 text-white">
+            <div class="col-12">
+                <div class="background__fade">
+                    <h1 class="bungee-shade text-center text-secondary">&ltfeatures section></h1>
+                </div>
+            </div>
             <div class="col-md-6 col-12 offset-0 offset-md-6 my-5 white__border p-md-5 p-2 background__image--1" data-aos="fade-right">
                 <div class="background__fade">
                     <h1 class="bungee-shade">The Deck System</h1>
@@ -80,6 +77,18 @@
                         Provides user the visual experience of classic games for modern, high-resolution monitors.
                     </p>
                 </div>
+            </div>
+        </section>
+        <section class="about__section">
+            <h1 class="bungee-shade text-center text-info" style="font-size: 50px;">About Us</h1>
+            <h1 class="roboto-condensed text-white text-justified" style="text-align: justify;">
+                <span class="brand__name" style="font-size: 50px;">ChronoDeck</span> is a cutting-edge digital platform specifically designed for PC gaming. Its name,
+                "<span class="brand__name" style="font-size: 50px;">ChronoDeck</span>," implies a mastery or unique approach to time within the gaming experience, or perhaps a
+                vast, curated "deck" of games spanning different eras and genres, presented in a structured or thematic
+                way.
+            </h1>
+            <div class="about__background-image--container">
+                <img src="/images/about/background.jpg" alt="" class="about__background-image">
             </div>
         </section>
         <%-include('../footer')%>

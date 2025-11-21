@@ -4,7 +4,11 @@ const sendCookie = require('../utils/sendCookie')
 exports.GetHomePage = (req, res) => {
     try {
         console.log(req.user)
-        let username = req.user.name
+        let username = req.user && req.user.name ? req.user.name : 'Guest'
+        console.log(username)
+        if(!(username)){
+            return res.render('home/home',{username:'Guest'})
+        }
         return res.render('home/home',{username:username})
     } catch (e) {
         console.log(e)
@@ -16,6 +20,16 @@ exports.GetGamesPage = (req, res) => {
         console.log(req.user)
         let username = req.user.name
         return res.render('home/game',{username:username})
+    } catch (e) {
+        console.log(e)
+        return res.send('something is wrong')
+    }
+}
+exports.GetSupportPage = (req, res) => {
+    try {
+        console.log(req.user)
+        let username = req.user.name
+        return res.render('home/support',{username:username})
     } catch (e) {
         console.log(e)
         return res.send('something is wrong')

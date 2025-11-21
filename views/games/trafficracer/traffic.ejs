@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Racer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            overflow: hidden;
+        }
+        @font-face {
+            font-family: 'ArchivoBlack';
+            src: url('./fonts/ArchivoBlack-Regular.ttf');
+            font-size: normal;
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'IntelOneMono';
+            src: url('./fonts/IntelOneMono-VariableFont_wght.ttf');
+            font-size: normal;
+            font-weight: normal;
+        }
+
+        .game__base {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(37, 36, 36);
+        }
+
+        .main__road {
+            width: 35%;
+            height: 100vh;
+        }
+
+        .roads {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #road__side--A {
+            background-color: rgb(80, 80, 80);
+            /* border-right: 10px dashed white; */
+            position: relative;
+        }
+
+        #road__side--B {
+            background-color: gray;
+        }
+
+        #road__side--C {
+            /* border-left: 10px dashed white; */
+            background-color: rgb(80, 80, 80);
+            position: relative;
+        }
+
+        #ford__mustang {
+            position: absolute;
+            bottom: 5%;
+            left: 49%;
+            width: 4%;
+            rotate: 180deg;
+        }
+
+        #police {
+            position: absolute;
+            top: 10%;
+            left: 45%;
+            width: 10%;
+            rotate: 270deg;
+        }
+
+        #score__board {
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            color: white;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .left__lane {
+            position: absolute;
+            right: 0%;
+
+        }
+
+        .right__lane {
+            position: absolute;
+            left: 0%;
+
+        }
+
+        .highway__lines--container {
+            width: 8px;
+            height: 100vh;
+            background-color: rgba(255, 0, 0, 0);
+        }
+
+        .highway__lines {
+            background-color: white;
+            width: 100%;
+            height: 8vh;
+            margin: 10px 0;
+            translate: 0 -100%;
+            animation: highway__lines--animation .2s linear infinite reverse;
+        }
+
+        .start__game--overlay{
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(37, 36, 36, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .5s ease-in;
+        }
+        .start__game--overlay:hover{
+            background-color: rgb(37, 36, 36);
+        }
+        .start__game--overlay:hover .game__title{
+            background-color: rgb(79, 79, 79);
+        }
+        .game__title{
+            color: rgb(168, 168, 168);
+            font-family: 'ArchivoBlack';
+            font-weight: 900;
+            font-size: 32;
+            background-color: rgba(79, 79, 79, 0);
+            padding: 5%;
+            transition: .5s ease-in;
+        }
+        .game__title:hover{
+            color: white;
+        }
+        .start__game--button{
+            border: 4px solid white;
+            background-color: rgb(37, 36, 36);
+            font-size: 28px;
+            font-weight: 900;
+            color: white;
+            padding: 20px 10px;
+            border-radius: 10px;
+            transition: all .5s ease-in;
+
+        }
+        .start__game--button:hover{
+            background-color: white;
+            color: rgb(37, 36, 36);
+        }
+        .button__container{
+            width: 100%;
+            padding: 10% 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes highway__lines--animation {
+            0% {
+                translate: 0 0%;
+            }
+
+            5% {
+                translate: 0 -5%;
+            }
+
+            10% {
+                translate: 0 -10%;
+            }
+
+            15% {
+                translate: 0 -15%;
+            }
+
+            20% {
+                translate: 0 -20%;
+            }
+
+            25% {
+                translate: 0 -25%;
+            }
+
+            30% {
+                translate: 0 -30%;
+            }
+
+            35% {
+                translate: 0 -35%;
+            }
+
+            40% {
+                translate: 0 -40%;
+            }
+
+            45% {
+                translate: 0 -45%;
+            }
+
+            50% {
+                translate: 0 -50%;
+            }
+
+            55% {
+                translate: 0 -55%;
+            }
+
+            60% {
+                translate: 0 -60%;
+            }
+
+            65% {
+                translate: 0 -65%;
+            }
+
+            70% {
+                translate: 0 -70%;
+            }
+
+            75% {
+                translate: 0 -75%;
+            }
+
+            80% {
+                translate: 0 -80%;
+            }
+
+            85% {
+                translate: 0 -85%;
+            }
+
+            90% {
+                translate: 0 -90%;
+            }
+
+            95% {
+                translate: 0 -95%;
+            }
+
+            100% {
+                translate: 0 -100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game__base" id="gameBase">
+        <div class="main__road">
+            <div class="row">
+                <div class="col-4" id="road__side--A">
+                    <div class="roads">
+                        <div class="highway__lines--container left__lane">
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4" id="road__side--B">
+                    <div class="roads">
+
+                    </div>
+                </div>
+                <div class="col-4" id="road__side--C">
+                    <div class="roads">
+                        <div class="highway__lines--container right__lane">
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                            <div class="highway__lines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="./images/Daco_4366374.png" alt="" id="ford__mustang">
+        <div id="score__board">
+            <p id="score__title">SCORE</p>
+            <p id="score">0</p>
+        </div>
+
+
+        <!-- <img src="./images/pngfind.com-police-car-png-16821.png" alt="" id="police" class="police"> -->
+    </div>
+    <div class="start__game--overlay" id="startGameOverlay">
+        <h1 class="game__title text-center">
+            TRAFFIC RACER
+        </h1>
+        <div class="button__container">
+            <button class="start__game--button" id="startGameButton">
+            START GAME
+        </button>
+        </div>
+    </div>
+
+    <script>
+        var currentRoad = 1
+        let score = 0
+        var road = [
+            {
+                name: "road__side--A",
+                left: 36,
+                policeCarLeft: 32
+            },
+            {
+                name: "road__side--B",
+                left: 49,
+                policeCarLeft: 45
+            },
+            {
+                name: "road__side--C",
+                left: 61,
+                policeCarLeft: 57
+            }
+        ]
+        let obstacleTopMovement = 1;
+        let isPoliceCar = false;
+        let policeRoadNumber
+
+        // var policeCar = document.getElementById('police')
+        const policeCarImageLocation = "./images/pngfind.com-police-car-png-16821.png"
+        const gameBase = document.getElementById('gameBase')
+        let police
+        // $(".game__base").css("background-color","red")
+
+        let policeGeneratorTimer
+
+        document.getElementById("startGameButton").addEventListener("click",startGame);
+
+        function startGame(){
+            document.getElementById("startGameOverlay").style.display = "none"
+            policeGeneratorTimer = setInterval(policeGenerator, 10)
+        }
+        
+
+        function policeGenerator() {
+            if (!(isPoliceCar)) {
+                policeRoadNumber = policeCar(rand(3))
+            }
+            // console.log("num" + policeRoadNumber)
+
+            // obstacleTopMovement = document.getElementById("police__road"+policeRoadNumber).style.top
+            obstacleTopMovement += 0.75;
+            let policeTop = document.getElementById("police__road" + policeRoadNumber)
+            policeTop.style.top = obstacleTopMovement + "%"
+            if ((isPoliceCar) && (policeTop.style.top == "70%") && (policeRoadNumber == currentRoad)) {
+                isPoliceCar = false
+                police.style.display = "none"
+                gameBase.removeChild(police)
+                alert("game over")
+                clearInterval(policeGeneratorTimer)
+
+            }
+            if (policeTop.style.top == "96.25%") {
+                isPoliceCar = false
+                policeTop.style.top = "1%"
+                obstacleTopMovement = 1
+                police.style.display = "none"
+                score++
+                document.getElementById("score").innerText = score
+                gameBase.removeChild(police)
+            }
+            // console.log(policeTop.style.top)
+            // console.log("hi")
+        }
+
+        function rand(limit) {
+            return Math.floor(Math.random() * limit)
+        }
+
+        function policeCar(roadNumber) {
+            //<img src="./images/pngfind.com-police-car-png-16821.png" alt="" id="police">
+            police = document.createElement('img')
+            police.src = policeCarImageLocation
+            police.classList.add('police')
+            police.id = "police__road" + roadNumber
+            police.style.position = "absolute"
+            police.style.top = "1%"
+            police.style.left = road[roadNumber].policeCarLeft + "%"
+            // obstacleTopMovement = police.style.top
+
+            // switch(roadNumber){
+            //     case 0:police.style.left = road[roadNumber].policeCarLeft;break;
+            //     case 0:police.style.left = "32%";break;
+            //     case 0:police.style.left = "32%";break;
+            // }
+
+
+            police.style.width = "10%"
+            police.style.rotate = "270deg"
+            police.style.display = "inline"
+
+            isPoliceCar = true
+
+            gameBase.append(police)
+            return roadNumber
+        }
+        // $('.police').animate({top:'70%'},2000,"swing",()=>{
+        //     if(currentRoad==policeRoadNumber){
+        //         alert("game over")
+        //         return
+        //     }
+        //     $(".police").animate({top:"100%"},1000,"swing",()=>{
+        //         $(".police").css("display","none")
+        //     })
+        // })
+
+        // console.log(document.getElementById("police").style.left)
+        // if(document.getElementById("#police").style.left )
+        document.body.addEventListener("keydown", function (e) {
+            console.log("keyDown" + e.keyCode)
+            switch (e.keyCode) {
+                case 37: moveLeft(); break;
+                case 39: moveRight(); break;
+            }
+            console.log(currentRoad)
+        })
+        function movingAnimation() {
+            $("#ford__mustang").animate({ left: road[currentRoad].left + "%" }, 400, "swing")
+        }
+        function moveLeft() {
+            if (currentRoad == 0) {
+                return
+            }
+            currentRoad--
+            // document.getElementById("ford__mustang").style.left = road[currentRoad].left +"%"
+            movingAnimation()
+        }
+        function moveRight() {
+            if (currentRoad == 2) {
+                return
+            }
+            currentRoad++
+            // document.getElementById("ford__mustang").style.left = road[currentRoad].left +"%"
+            movingAnimation()
+        }
+    </script>
+
+</body>
+
+</html>

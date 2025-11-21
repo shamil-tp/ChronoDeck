@@ -66,12 +66,12 @@
             </div>
 
             <!-- Subscribe & Social -->
-            <div class="col-md-3">
+            <form action="/sendmail" method="post" class="col-md-3">
                 <h5 class="fw-semibold mb-3">Stay Updated</h5>
                 <p>Subscribe to get gaming updates, offers & event announcements.</p>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Email Address">
-                    <button class="btn btn-primary"><i class="bi bi-send"></i></button>
+                    <input type="email" class="form-control" placeholder="Email Address" name="email">
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-send"></i></button>
                 </div>
 
                 <div class="d-flex gap-3">
@@ -80,7 +80,7 @@
                     <a href="#" class="text-light fs-4"><i class="bi bi-twitter-x"></i></a>
                     <a href="#" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
                 </div>
-            </div>
+            </form>
 
         </div>
 
